@@ -1,5 +1,5 @@
 import { compareValue, hashValue } from 'src/utils/bcrypt';
-import { BeforeInsert, BeforeUpdate, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { BeforeInsert, BeforeUpdate, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 
 @Entity({ name: 'users' })
 export class User {
@@ -27,12 +27,18 @@ export class User {
   @Column('text', { array: true, default: ['user'] })
   roles: string[];
 
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
+
   @BeforeInsert()
   @BeforeUpdate()
   async checkFieldsBeforeInsert() {
     this.email    = this.email.toLowerCase().trim();
     this.fullName = `${this.name} ${this.lastname}`.trim();
-    
+
     if (this.password) {
       this.password = await hashValue(this.password);
     }
