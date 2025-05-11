@@ -5,30 +5,30 @@ export class User {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column('varchar', { unique: true })
+  @Column('text', { unique: true })
   email: string;
 
-  @Column('varchar', { select: false })
+  @Column('text', { select: false })
   password: string;
 
-  @Column('varchar')
+  @Column('text')
   name: string;
 
-  @Column('varchar')
+  @Column('text')
   lastname: string;
 
-  @Column('varchar', { nullable: true })
+  @Column('text', { nullable: true })
   fullName: string;
 
-  @Column('bool', { default: true })
+  @Column('boolean', { default: true })
   isActive: boolean;
 
-  @Column('varchar', { array: true, default: ['user'] })
+  @Column('text', { array: true, default: ['user'] })
   roles: string[];
 
   @BeforeInsert()
   checkFieldsBeforeInsert() {
-    this.email    = this.email.toLowerCase().trim();
+    this.email = this.email.toLowerCase().trim();
     this.fullName = `${this.name} ${this.lastname}`.trim();
   }
 
