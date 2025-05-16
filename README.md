@@ -32,15 +32,8 @@ pnpm install
 ```
 
 3. Configura las variables de entorno:
-Crea un archivo `.env` en la raíz del proyecto con las siguientes variables:
-```env
-DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=tu_base_de_datos
-DB_USER=tu_usuario
-DB_PASSWORD=tu_contraseña
-JWT_SECRET=tu_secreto_jwt
-```
+Reemplaza el archivo .env.example por .env, y agrega tus credenciales
+
 
 ## Ejecución del Proyecto
 
