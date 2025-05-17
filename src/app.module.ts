@@ -4,8 +4,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 // Config
 import { typeOrmConfig } from './config/database/typeorm.config';
 // Modules
-import { UsersModule } from './modules/users/users.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { UsersModule } from './modules/users/users.module';
 
 @Module({
   imports: [
