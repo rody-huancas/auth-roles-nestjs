@@ -8,6 +8,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
 import { RolesModule } from './modules/roles/roles.module';
 import { SystemModulesModule } from './modules/system-modules/system-modules.module';
+import { ActionsModule } from './modules/actions/actions.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { SystemModulesModule } from './modules/system-modules/system-modules.mod
     AuthModule,
     RolesModule,
     SystemModulesModule,
+    ActionsModule,
   ],
 })
 export class AppModule {}
