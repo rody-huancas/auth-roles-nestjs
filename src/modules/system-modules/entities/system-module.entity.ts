@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { Permission } from 'src/modules/permissions/entities/permission.entity';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany } from 'typeorm';
 
 @Entity({ name: 'system_modules' })
 export class SystemModule {
@@ -19,6 +20,9 @@ export class SystemModule {
 
   @Column('boolean', { default: true })
   isActive: boolean;
+
+  @OneToMany(() => Permission, permission => permission.systemModule)
+  permissions: Permission[];
 
   @CreateDateColumn()
   createdAt: Date;
