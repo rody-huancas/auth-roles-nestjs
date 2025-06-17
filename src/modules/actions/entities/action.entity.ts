@@ -1,4 +1,5 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import { Permission } from 'src/modules/permissions/entities/permission.entity';
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 
 @Entity({ name: 'actions' })
 export class Action {
@@ -10,6 +11,9 @@ export class Action {
 
   @Column('text')
   description: string;
+
+  @OneToMany(() => Permission, permission => permission.action)
+  permissions: Permission[];
 
   @CreateDateColumn()
   createdAt: Date;
